@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: privpod
+  namespace: secure-apps
+spec:
+  containers:
+  - name: priv
+    image: busybox
+    command: ["sleep", "3600"]
+    securityContext:
+      privileged: true

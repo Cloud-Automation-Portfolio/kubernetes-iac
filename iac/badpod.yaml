@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: badpod
+  namespace: secure-apps
+spec:
+  containers:
+  - name: bad
+    image: busybox
+    command: ["sleep", "3600"]
+    # (no resource limits on purpose)
