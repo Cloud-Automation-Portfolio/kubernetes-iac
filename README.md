@@ -19,9 +19,8 @@ Automated lab to provision, secure, and enforce best practices on Kubernetes clu
   - [5. RBAC Test]
   - [6. NetworkPolicy Enforcement]
   - [7. Admission Controller Enforcement]
-  - [8. GitOps with ArgoCD (Bonus)]
-  - [9. Policy as Code with Gatekeeper (Bonus)]
-  - [10. Cleanup]
+  - [8. Cleanup]
+  - [9. Bonuses]
 - [Screenshots](#screenshots)
 - [Lessons Learned](#lessons-learned)
 - [Notes and Limitations](#notes-and-limitations)
@@ -107,17 +106,18 @@ All configuration and security policies are version-controlled as YAML for full 
    - Enabled Pod Security Admission (restricted mode)
    - Attempted to deploy privileged pod—blocked at the API level *(Screenshot: `admission-controllers.png`)*
 
-**8. GitOps with ArgoCD (Bonus)**
+**8. Cleanup**
+   - Delete Minikube cluster (minikube delete)
+   - Optionally, stop/quit Docker Desktop.
+    
+**9. Bonuses**
+**9.1 GitOps with ArgoCD**
    - Installed ArgoCD, exposed the UI with port-forward and displayed login screen *(Screenshot: `bonus-argocd-ui.png`)*
 
-**9. Policy as Code with Gatekeeper (Bonus)**
+**9.2 Policy as Code with Gatekeeper**
    - Installed OPA Gatekeeper.
    - Enforced a policy: All pods must set CPU and memory limits.
    - Attempted to deploy non-compliant pod—denied by policy *(Screenshot: `bonus-argocd-opa.png` & `gatekeeper-policy-test.png`)*
-
-**10. Cleanup**
-   - Delete Minikube cluster (minikube delete)
-   - Optionally, stop/quit Docker Desktop.
 
 ---
 
@@ -125,20 +125,20 @@ All configuration and security policies are version-controlled as YAML for full 
 
 *All screenshots are included in the `screenshots/` folder.*
 
-| Step                    | Screenshot Filename          | Description                               |
-|-------------------------|------------------------------|-------------------------------------------|
-| 1 Prereqs               | prereqs-terminal.png         | Prerequisite tools and CLI validation     |
-| 2 Cluster Spin-Up       | cluster-up-terminal.png      | Minikube cluster running                  |
-| 3 Namespace Creation    | namespaces-terminal.png      | `secure-apps` namespace created           |
-| 4 RBAC Resources        | rbac-resources.png           | RBAC objects applied                      |
-| 4 RBAC Test             | rbac-test.png                | ServiceAccount least-privilege test       |
-| 5 RBAC Bonus            | rbac-wow-test.png            | Locked-down shell test                    |
-| 6 NetPol Enforced       | netpol-enforced.png          | Default-deny policy applied               |
-| 6 NetPol Test           | netpol-test.png              | Blocked pod-to-pod ping                   |
-| 7 Admission Controllers | admission-controllers.png    | Privileged pod blocked                    |
-| 8 ArgoCD UI             | bonus-argocd-ui.png          | ArgoCD web UI exposed                     |
-| 9 Gatekeeper OPA        | bonus-argocd-opa.png         | OPA Gatekeeper installed/policy enforced  |
-| 9 Gatekeeper Policy     | gatekeeper-policy-test.png   | Gatekeeper blocks non-compliant pod       |
+| Step                      | Screenshot Filename          | Description                               |
+|---------------------------|------------------------------|-------------------------------------------|
+| 1   Prereqs               | prereqs-terminal.png         | Prerequisite tools and CLI validation     |
+| 2   Cluster Spin-Up       | cluster-up-terminal.png      | Minikube cluster running                  |
+| 3   Namespace Creation    | namespaces-terminal.png      | `secure-apps` namespace created           |
+| 4   RBAC Resources        | rbac-resources.png           | RBAC objects applied                      |
+| 4   RBAC Test             | rbac-test.png                | ServiceAccount least-privilege test       |
+| 5   RBAC Bonus            | rbac-wow-test.png            | Locked-down shell test                    |
+| 6   NetPol Enforced       | netpol-enforced.png          | Default-deny policy applied               |
+| 6   NetPol Test           | netpol-test.png              | Blocked pod-to-pod ping                   |
+| 7   Admission Controllers | admission-controllers.png    | Privileged pod blocked                    |
+| 9.1 ArgoCD UI             | bonus-argocd-ui.png          | ArgoCD web UI exposed                     |
+| 9.2 Gatekeeper OPA        | bonus-argocd-opa.png         | OPA Gatekeeper installed/policy enforced  |
+| 9.2 Gatekeeper Policy     | gatekeeper-policy-test.png   | Gatekeeper blocks non-compliant pod       |
 
 ---
 
