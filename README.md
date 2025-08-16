@@ -20,7 +20,9 @@ Automated lab to provision, secure, and enforce best practices on Kubernetes clu
   - [6. NetworkPolicy Enforcement]
   - [7. Admission Controller Enforcement]
   - [8. Cleanup]
-  - [9. Bonuses]
+- [Bonuses](#bonuses)
+  - [1.1 GitOps with ArgoCD]
+  - [1.2 Policy as Code with Gatekeeper]
 - [Screenshots](#screenshots)
 - [Lessons Learned](#lessons-learned)
 - [Notes and Limitations](#notes-and-limitations)
@@ -109,12 +111,15 @@ All configuration and security policies are version-controlled as YAML for full 
 **8. Cleanup**
    - Delete Minikube cluster (minikube delete)
    - Optionally, stop/quit Docker Desktop.
-    
-**9. Bonuses**
-**9.1 GitOps with ArgoCD**
+
+---
+
+## Bonuses
+
+**1.1 GitOps with ArgoCD**
    - Installed ArgoCD, exposed the UI with port-forward and displayed login screen *(Screenshot: `bonus-argocd-ui.png`)*
 
-**9.2 Policy as Code with Gatekeeper**
+**1.2 Policy as Code with Gatekeeper**
    - Installed OPA Gatekeeper.
    - Enforced a policy: All pods must set CPU and memory limits.
    - Attempted to deploy non-compliant pod—denied by policy *(Screenshot: `bonus-argocd-opa.png` & `gatekeeper-policy-test.png`)*
@@ -136,9 +141,9 @@ All configuration and security policies are version-controlled as YAML for full 
 | 6   NetPol Enforced       | netpol-enforced.png          | Default-deny policy applied               |
 | 6   NetPol Test           | netpol-test.png              | Blocked pod-to-pod ping                   |
 | 7   Admission Controllers | admission-controllers.png    | Privileged pod blocked                    |
-| 9.1 ArgoCD UI             | bonus-argocd-ui.png          | ArgoCD web UI exposed                     |
-| 9.2 Gatekeeper OPA        | bonus-argocd-opa.png         | OPA Gatekeeper installed/policy enforced  |
-| 9.2 Gatekeeper Policy     | gatekeeper-policy-test.png   | Gatekeeper blocks non-compliant pod       |
+| 1.1 ArgoCD UI             | bonus-argocd-ui.png          | ArgoCD web UI exposed                     |
+| 1.2 Gatekeeper OPA        | bonus-argocd-opa.png         | OPA Gatekeeper installed/policy enforced  |
+| 1.2 Gatekeeper Policy     | gatekeeper-policy-test.png   | Gatekeeper blocks non-compliant pod       |
 
 ---
 
